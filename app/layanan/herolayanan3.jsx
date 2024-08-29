@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 import { FcIdea } from "react-icons/fc";
 import { FaRegLightbulb } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
@@ -63,9 +64,12 @@ const Herolayanan3 = () => {
                 </p>
               </div>
               <div className="-mt-4">
+                <Link href="layanan/paket/startup">
                 <button className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 p-3 text-center rounded-full w-40">
                   Booking Now
                 </button>
+                </Link>
+                
               </div>
               <div className="py-4">
                 <h1>
@@ -93,9 +97,12 @@ const Herolayanan3 = () => {
                 </p>
               </div>
               <div className="-mt-4">
+                <Link href="layanan/paket/ekonomis">
+                
                 <button className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 p-3 text-center rounded-full w-40">
                   Booking Now
                 </button>
+                </Link>
               </div>
               <div className="py-4">
                 <h1>
@@ -123,9 +130,12 @@ const Herolayanan3 = () => {
                 </p>
               </div>
               <div className="-mt-4">
+                <Link href="layanan/paket/business">
+
                 <button className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 p-3 text-center rounded-full w-40">
                   Booking Now
                 </button>
+                </Link>
               </div>
               <div className="py-4">
                 <h1>
@@ -153,9 +163,12 @@ const Herolayanan3 = () => {
                 </p>
               </div>
               <div className="-mt-4">
+                <Link href="layanan/paket/expert">
+                
                 <button className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 p-3 text-center rounded-full w-40">
                   Booking Now
                 </button>
+                </Link>
               </div>
               <div className="py-4">
                 <h1>

@@ -35,7 +35,7 @@ const Hero2 = () => {
             </div>
           </div>
           <div className="flex flex-col lg:flex-row gap-4">
-          <Image src="/alamat.png" width={80} height={80}/>
+          <Image src="/alamat.png" width={100} height={100}/>
             <div className="flex flex-col gap-2">
             <h1 className="font-semibold text-lg">Alamat</h1>
             <p className="text-sm font-light">Jl. Cibiru Tonggoh, Pasir Biru, Kec. Cibiru, Kota Bandung, Provinsi Jawa Barat 40615, Indonesia.</p>
