@@ -12,12 +12,10 @@ const Hero2 = () => {
   
   const handleLogin = (e) => {
     e.preventDefault();
-    if (email === 'tes@gmail.com' && password === '123') {
+    
       localStorage.setItem('user', JSON.stringify({ email }));
       router.push('/layanan');
-    } else {
-      setError('Invalid credentials');
-    }
+   
   };
 
 

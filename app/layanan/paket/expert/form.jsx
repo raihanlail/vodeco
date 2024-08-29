@@ -49,7 +49,8 @@ const Form = () => {
     } else {
       // Submit form
       console.log("Form submitted successfully:", values);
-      setState((prev) => ({ ...prev, isModalOpen: true, modalMessage:"Pemesanan berhasil!, proses pembayaran akan dilanjutkan via WA" }));
+      setState((prev) => ({ ...prev,  values: initValues,  // Kosongkan form setelah submit
+        errors: {}, isModalOpen: true, modalMessage:"Pemesanan berhasil!, proses pembayaran akan dilanjutkan via WA" }));
     }
   };
 
@@ -69,7 +70,8 @@ const Form = () => {
   };
 
   return (
-    <div className="min-h-full my-28">
+    <div>
+       <div className={`min-h-full my-28 ${isModalOpen ? "filter blur-sm" : ""}`}>
       <div
         className="flex flex-col mx-12 md:mx-24 lg:mx-48
          my-12 items-center justify-center"
@@ -218,7 +220,9 @@ const Form = () => {
           </button>
         </form>
       </div>
-      {isModalOpen && (
+      
+    </div>
+    {isModalOpen && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-6 rounded-lg shadow-lg">
           <h2 className="text-2xl mb-4">{modalMessage.includes("berhasil") ? "Pemesanan berhasil" : "Pemesanan gagal"}</h2>
@@ -233,6 +237,7 @@ const Form = () => {
         </div>
       )}
     </div>
+   
   );
 };
 

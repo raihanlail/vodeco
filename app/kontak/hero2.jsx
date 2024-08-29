@@ -1,9 +1,71 @@
+"use client"
+import { sendContactMail } from "@/lib/api";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
+
+const initValues = {
+  
+  name: "",
+  email: "",
+  hp: "",
+  message: "",
+};
+const initState = {
+  values: initValues,
+  errors: {},
+  isModalOpen: false,
+  modalMessage: "",
+};
 const Hero2 = () => {
+  const [state, setState] = useState(initState);
+  const { values, errors, isLoading,isModalOpen, modalMessage } = state;
+  const handleChange = ({ target }) =>
+    setState((prev) => ({
+      ...prev,
+      values: {
+        ...prev.values,
+        [target.name]: target.value,
+      },
+    }));
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newErrors = {};
+
+    // Validasi setiap field
+    Object.keys(values).forEach((key) => {
+      if (!values[key]) {
+        newErrors[key] = `${key} is required`;
+      }
+    });
+
+    if (Object.keys(newErrors).length > 0) {
+      setState((prev) => ({ ...prev, errors: newErrors, isModalOpen: true, modalMessage:"Pesan gagal dikirimkan, harap isi form dengan lengkap." }));
+    } else {
+      // Submit form
+      console.log("Form submitted successfully:", values);
+      setState((prev) => ({ ...prev,  values: initValues,  // Kosongkan form setelah submit
+        errors: {}, isModalOpen: true, modalMessage:"Pesan berhasil dikirimkan!" }));
+    }
+  };
+
+  const onSubmit =  async () => {
+    setState((prev) => ({
+      ...prev,
+      isLoading: true,
+      isModalOpen: true,
+    }));
+    await sendContactMail(values)
+  }
+  const closeModal = () => {
+    setState((prev) => ({
+      ...prev,
+      isModalOpen: false,
+    }));
+  };
   return (
-    <div className="mx-4 lg:mx-32 mb-32 mt-8 flex flex-col lg:flex-row">
+    <div className={`mx-4 lg:mx-32 mb-32 mt-8 flex flex-col lg:flex-row  `}>
       <div className="w-full lg:w-1/3 flex flex-col gap-4">
         <div className="flex flex-col gap-4">
             <p className="text-blue-900 font-bold text-sm">
@@ -47,25 +109,32 @@ const Hero2 = () => {
         <div className="flex flex-col px-6 py-4">
             <p className="font-semibold text-gray-500">Tinggalkan Pesan Anda</p>
             <p className="font-extralight py-2">Pesan yang anda kirim akan masuk ke email</p>
-            <form action="" className="gap-4 w-full">
+            <form onSubmit={handleSubmit} className="gap-4 w-full">
                 <div className="py-2">
-                    <input type="text" placeholder="Nama" className="border rounded-md border-gray-300 w-full h-8 p-2" />
+                    <input type="text" placeholder="Nama" id="name"
+              name="name"  value={values.name}
+              onChange={handleChange} className="border rounded-md border-gray-300 w-full h-8 p-2" />
 
                 </div>
                 <div className="py-2">
-                    <input type="email" placeholder="E-mail" className="border rounded-md border-gray-300 w-full h-8 p-2" />
+                    <input type="email" id="email"
+                name="email" onChange={handleChange}
+                value={values.email} placeholder="E-mail" className="border rounded-md border-gray-300 w-full h-8 p-2" />
 
                 </div>
                 <div className="py-2">
-                    <input type="number" placeholder="Nomor HP" className="border rounded-md border-gray-300 w-full h-8 p-2" />
+                    <input type="text" id="hp"
+                name="hp" placeholder="Nomor HP" onChange={handleChange}
+                value={values.hp} className="border rounded-md border-gray-300 w-full h-8 p-2" />
 
                 </div>
                 <div className="py-2">
-                    <input type="text"  className="border rounded-md border-gray-300 w-full h-40 p-2" />
+                    <input type="text" id="message" name="message" onChange={handleChange}
+                value={values.message}  className="border rounded-md border-gray-300 w-full h-40 p-2" />
 
                 </div>
                 <div className="py-2">
-                    <button className="w-full bg-blue-800 rounded-md h-8 text-white border border-blue-800 hover:text-black hover:bg-white transition-all">
+                    <button onClick={onSubmit} className="w-full bg-blue-800 rounded-md h-8 text-white border border-blue-800 hover:text-black hover:bg-white transition-all">
                         Kirim Pesan
                     </button>
 
@@ -74,7 +143,22 @@ const Hero2 = () => {
 
         </div>
 
+
         </div>
+        {isModalOpen && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h2 className="text-2xl mb-4">{modalMessage.includes("berhasil") ? "Pesan Terkirim" : "Pesan Tidak Terkirim"}</h2>
+          <p>{modalMessage}</p>
+            <button
+              className="mt-4 bg-blue-800 text-white py-2 px-4 rounded"
+              onClick={closeModal}
+            >
+              tutup
+            </button>
+          </div>
+        </div>
+      )}
       </div>
     
   );
