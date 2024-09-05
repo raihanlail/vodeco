@@ -40,7 +40,7 @@ const Navbar = () => {
                   <Link href="/" className="hover:text-blue-300 transition-all">Home</Link>
                 </li>
                 <li>
-                  <Link href="/tentang" className="hover:text-blue-300 transition-all">Tentang</Link>
+                  <Link href="/profile" className="hover:text-blue-300 transition-all">Profile</Link>
                 </li>
                 <li>
                   <Link href={user ? "/layanan" : "/login"} className="hover:text-blue-300 transition-all" onClick={handleLayananClick}>
