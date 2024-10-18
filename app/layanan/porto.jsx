@@ -5,17 +5,7 @@ import React, { useEffect, useState } from 'react'
 
 
 const Porto = () => {
-  const [user, setUser] = useState(null);
-  const router = useRouter();
-
-  useEffect(() => {
-    const userData = localStorage.getItem('user');
-    if (userData) {
-      setUser(JSON.parse(userData));
-    } else {
-      router.push('/login');
-    }
-  }, []);
+  
   return (
     <div className='min-h-3.5 my-20 flex flex-col items-center justify-center text-center mx-4 md:mx-32'>
         <h1 className='text-3xl text-blue-950'>

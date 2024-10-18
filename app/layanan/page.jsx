@@ -12,17 +12,7 @@ import { useRouter } from 'next/navigation'
 
 
 const Page = () => {
-  const [user, setUser] = useState(null);
-  const router = useRouter();
-
-  useEffect(() => {
-    const userData = localStorage.getItem('user');
-    if (userData) {
-      setUser(JSON.parse(userData));
-    } else {
-      router.push('/login');
-    }
-  }, []);
+  
  
   return (
     <div>

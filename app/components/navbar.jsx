@@ -43,7 +43,7 @@ const Navbar = () => {
                   <Link href="/profile" className="hover:text-blue-300 transition-all">Profile</Link>
                 </li>
                 <li>
-                  <Link href={user ? "/layanan" : "/login"} className="hover:text-blue-300 transition-all" onClick={handleLayananClick}>
+                  <Link href= "/layanan" className="hover:text-blue-300 transition-all" >
                     Layanan
                   </Link>
                 </li>
@@ -58,11 +58,7 @@ const Navbar = () => {
                 </li>
               </ul>
               <div></div>
-              <Link href="/login">
-                <button className="w-full md:w-32 text-blue-800 h-8 bg-white hover:bg-blue-400 hover:text-white transition-all mt-8 md:mt-2 rounded-2xl">
-                  Login
-                </button>
-              </Link>
+             
             </div>
             <div
               onClick={() => setOpen(!open)}
