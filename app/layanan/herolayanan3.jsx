@@ -64,7 +64,7 @@ const Herolayanan3 = () => {
                 </p>
               </div>
               <div className="-mt-4">
-                <Link href="https://wa.me/082138985146">
+                <Link href="https://wa.me/82138985146">
                 <button className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 p-3 text-center rounded-full w-40">
                   Booking Now
                 </button>
@@ -97,7 +97,7 @@ const Herolayanan3 = () => {
                 </p>
               </div>
               <div className="-mt-4">
-                <Link href=" https://wa.me/082138985146">
+                <Link href=" https://wa.me/82138985146">
                 
                 <button className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 p-3 text-center rounded-full w-40">
                   Booking Now
@@ -130,7 +130,7 @@ const Herolayanan3 = () => {
                 </p>
               </div>
               <div className="-mt-4">
-                <Link href="https://wa.me/082138985146">
+                <Link href="https://wa.me/82138985146">
 
                 <button className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 p-3 text-center rounded-full w-40">
                   Booking Now
@@ -163,7 +163,7 @@ const Herolayanan3 = () => {
                 </p>
               </div>
               <div className="-mt-4">
-                <Link href="https://wa.me/082138985146">
+                <Link href="https://wa.me/82138985146">
                 
                 <button className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 p-3 text-center rounded-full w-40">
                   Booking Now
