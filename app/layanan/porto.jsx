@@ -34,10 +34,7 @@ konsultasi gratis mengenai layanan yang kami tawarkan
             </button>
             <div className='flex items-center justify-center text-white -mt-12 '>
 
-        <button className='text-blod text-base w-36 h-12 rounded-full hover:bg-white hover:text-black transition-all bg-blue-700 flex items-center justify-center' onClick={() => {
-        localStorage.removeItem('user');
-        router.push('/login');
-      }}>Logout</button>
+        
         </div>
       
     </div>
